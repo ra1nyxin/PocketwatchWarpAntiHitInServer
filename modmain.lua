@@ -6,9 +6,9 @@ Assets = { Asset("ATLAS", "images/inventoryimages/pocketwatch_bloodbound.xml") }
 RegisterInventoryItemAtlas("images/inventoryimages/pocketwatch_bloodbound.xml", "pocketwatch_bloodbound.tex")
 
 _G.STRINGS.NAMES.POCKETWATCH_BLOODBOUND = "血刻表"
-_G.STRINGS.RECIPE_DESC.POCKETWATCH_BLOODBOUND = "在危险到来时，倒退时间。"
-_G.STRINGS.CHARACTERS.GENERIC.DESCRIBE.POCKETWATCH_BLOODBOUND = "时间会保护它的主人。"
-_G.STRINGS.CHARACTERS.WANDA.DESCRIBE.POCKETWATCH_BLOODBOUND = "我的时间，由我掌控。"
+_G.STRINGS.RECIPE_DESC.POCKETWATCH_BLOODBOUND = "给危险一个扑空的机会。"
+_G.STRINGS.CHARACTERS.GENERIC.DESCRIBE.POCKETWATCH_BLOODBOUND = "它好像比我更怕挨打。"
+_G.STRINGS.CHARACTERS.WANDA.DESCRIBE.POCKETWATCH_BLOODBOUND = "哎呀，看来你来晚了一步！"
 
 AddRecipe2("pocketwatch_bloodbound", {
     Ingredient("horrorfuel", 5),

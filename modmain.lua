@@ -2,6 +2,8 @@ local _G = GLOBAL
 local TUNING = _G.TUNING
 
 PrefabFiles = { "pocketwatch_bloodbound" }
+Assets = { Asset("ATLAS", "images/inventoryimages/pocketwatch_bloodbound.xml") }
+RegisterInventoryItemAtlas("images/inventoryimages/pocketwatch_bloodbound.xml", "pocketwatch_bloodbound.tex")
 
 _G.STRINGS.NAMES.POCKETWATCH_BLOODBOUND = "血刻表"
 _G.STRINGS.RECIPE_DESC.POCKETWATCH_BLOODBOUND = "在危险到来时，倒退时间。"
@@ -16,7 +18,8 @@ AddRecipe2("pocketwatch_bloodbound", {
     Ingredient("goldnugget", 2),
 }, _G.TECH.NONE, {
     builder_tag = "clockmaker",
-    image = "pocketwatch_warp.tex",
+    atlas = "images/inventoryimages/pocketwatch_bloodbound.xml",
+    image = "pocketwatch_bloodbound.tex",
     no_deconstruction = function(inst) return not inst:HasTag("pocketwatch_inactive") end,
 }, { "CHARACTER" })
 
@@ -44,8 +47,10 @@ AddPrefabPostInit("wanda", function(inst)
     inst:ListenForEvent("equip", QueueMarkerRefresh)
     inst:ListenForEvent("unequip", QueueMarkerRefresh)
     local combat = inst.components.combat
-    local old_getattacked = combat.GetAttacked
-    combat.GetAttacked = function(self, attacker, damage, weapon, stimuli, spdamage, ...)
+    -- Current DST routes both direct hits and DoAttack through the internal method.
+    local attack_method = combat.GetAttacked_Internal ~= nil and "GetAttacked_Internal" or "GetAttacked"
+    local old_getattacked = combat[attack_method]
+    combat[attack_method] = function(self, attacker, damage, weapon, stimuli, spdamage, ...)
         local health, sg = inst.components.health, inst.sg
         local rider = inst.components.rider
         if ((damage or 0) > 0 or spdamage ~= nil)

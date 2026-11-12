@@ -2,10 +2,6 @@
 
 作者 / Author: ra1nyxin
 
-> 开发中：地面模型暂时使用染色效果，物品栏图标和手持贴图仍是原版倒走表外观；尚未完成游戏内联机测试。
->
-> Work in progress: the ground model is tinted, while the inventory icon and held texture still use the original Backstep Watch artwork. Multiplayer testing is pending.
-
 ## 中文
 
 这是饥荒联机版的全客户端必装模组。旺达可以在角色制作栏直接制作血刻表，无需工作站：5 纯粹恐惧、2 暗影碎布、1 红宝石、1 时间碎片和 2 金块。

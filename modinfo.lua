@@ -1,7 +1,7 @@
 name = "血刻表 / Bloodbound Watch"
 description = "旺达的血刻表：自动倒走闪避攻击。"
 author = "ra1nyxin"
-version = "1.0.0"
+version = "1.0.1"
 api_version = 10
 dst_compatible = true
 all_clients_require_mod = true

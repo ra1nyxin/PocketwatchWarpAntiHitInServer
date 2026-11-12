@@ -2,7 +2,8 @@ local PocketWatchCommon = require "prefabs/pocketwatch_common"
 
 local assets = {
     Asset("ANIM", "anim/pocketwatch.zip"),
-    Asset("ANIM", "anim/pocketwatch_warp.zip"),
+    Asset("ANIM", "anim/pocketwatch_bloodbound.zip"),
+    Asset("ATLAS", "images/inventoryimages/pocketwatch_bloodbound.xml"),
 }
 
 local function DoCast(inst, doer)
@@ -23,13 +24,12 @@ local function DoCast(inst, doer)
 end
 
 local function fn()
-    local inst = PocketWatchCommon.common_fn("pocketwatch", "pocketwatch_warp", DoCast, true,
+    local inst = PocketWatchCommon.common_fn("pocketwatch", "pocketwatch_bloodbound", DoCast, true,
         { "pocketwatch_warp", "pocketwatch_warp_casting" })
     inst.GetActionVerb_CAST_POCKETWATCH = "WARP"
-    inst.AnimState:SetMultColour(1, .22, .22, 1)
     if not TheWorld.ismastersim then return inst end
     inst.castfxcolour = { 1, .12, .12 }
-    inst.components.inventoryitem.imagename = "pocketwatch_warp"
+    inst.components.inventoryitem.atlasname = "images/inventoryimages/pocketwatch_bloodbound.xml"
     return inst
 end
 
